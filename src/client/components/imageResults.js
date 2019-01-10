@@ -1,3 +1,8 @@
+/* eslint-disable react/jsx-one-expression-per-line */
+/* eslint-disable react/jsx-wrap-multilines */
+/* eslint-disable react/forbid-prop-types */
+/* eslint-disable react/destructuring-assignment */
+/* eslint-disable import/no-extraneous-dependencies */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { GridList, GridTile } from 'material-ui/GridList';
@@ -12,13 +17,13 @@ class ImageResults extends Component {
     currentImg: ''
   };
 
-  handleOpen = img => {
-    this.setState({ open: true, currentImg: img })
-  }
-  
+  handleOpen = (img) => {
+    this.setState({ open: true, currentImg: img });
+  };
+
   handleClose = () => {
-    this.setState({ open: false })
-  }
+    this.setState({ open: false });
+  };
 
   render() {
     let imageListContent;
@@ -52,19 +57,21 @@ class ImageResults extends Component {
     }
 
     const actions = [
-      <FlatButton label="Close" primary={true} onClick={this.handleClose} />
-    ]
+      <FlatButton label="Close" primary onClick={this.handleClose} />
+    ];
 
     return (
       <div>
         {imageListContent}
-        <Dialog 
+        <Dialog
           actions={actions}
           modal={false}
+          // eslint-disable-next-line react/destructuring-assignment
           open={this.state.open}
-          onRequestClose={this.handleClose}>
-          <img src={this.state.currentImg} alt="" style={{ width:"100%" }} />
-          </Dialog>
+          onRequestClose={this.handleClose}
+        >
+          <img src={this.state.currentImg} alt="" style={{ width: '100%' }} />
+        </Dialog>
       </div>
     );
   }

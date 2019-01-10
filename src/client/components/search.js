@@ -1,25 +1,29 @@
-import React, { Component } from "react";
-import TextField from "material-ui/TextField";
-import MenuItem from "@material-ui/core/MenuItem";
-import FilledInput from "@material-ui/core/FilledInput";
-import Select from "@material-ui/core/Select";
-import axios from "axios";
+/* eslint-disable react/destructuring-assignment */
+/* eslint-disable import/no-named-as-default-member */
+/* eslint-disable import/no-named-as-default */
+import React, { Component } from 'react';
+import TextField from 'material-ui/TextField';
+import MenuItem from '@material-ui/core/MenuItem';
+import FilledInput from '@material-ui/core/FilledInput';
+import Select from '@material-ui/core/Select';
+import axios from 'axios';
+import config from '../../../config.json';
 
- import ImageResults from './imageResults';
+import ImageResults from './imageResults';
 
 class Search extends Component {
   state = {
-    searchText: "",
+    searchText: '',
     amount: 5,
-    apiUrl: "https://pixabay.com/api",
-    apiKey: "11235562-700cbc0b55703053c919d11a5",
+    apiUrl: config.apiUrl,
+    apiKey: config.apiKey,
     images: []
   };
 
-  onTextChange = e => {
+  onTextChange = (e) => {
     const val = e.target.value;
     this.setState({ [e.target.name]: val }, () => {
-      if (val === "") {
+      if (val === '') {
         this.setState({ images: [] });
       } else {
         axios
@@ -34,7 +38,7 @@ class Search extends Component {
     });
   };
 
-  handleChange = e => {
+  handleChange = (e) => {
     this.setState({ [e.target.name]: e.target.value });
   };
 
@@ -47,11 +51,11 @@ class Search extends Component {
           value={this.state.searchText}
           onChange={this.onTextChange}
           floatingLabelText="Search for Images"
-          fullWidth={true}
+          fullWidth
         />
         <br />
         <Select
-          style={{ minWidth: 200, textAlign: "center" }}
+          style={{ minWidth: 200, textAlign: 'center' }}
           value={this.state.amount}
           onChange={this.handleChange}
           input={<FilledInput name="amount" id="filled-amount-simple" />}

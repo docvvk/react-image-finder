@@ -3,7 +3,10 @@
   "version": "1.0.0",
   "description": "Boilerplate to build a full stack web application using React, Node.js, Express and Webpack.",
   "main": "src/server/index.js",
+  "homepage": "https://docvvk.github.io/react-image-finder",
   "scripts": {
+    "deploy": "gh-pages-deploy",
+    "clean-source": "rimraf README.md src webroot package.json",
     "build": "webpack --mode production",
     "start": "npm run build && node src/server/index.js",
     "client": "webpack-dev-server --mode development --devtool inline-source-map --hot",
@@ -17,6 +20,7 @@
     "axios": "^0.18.0",
     "babel-polyfill": "^6.26.0",
     "express": "^4.16.3",
+    "gh-pages-deploy": "^0.5.1",
     "material-ui": "^0.20.2",
     "react": "^16.5.2",
     "react-dom": "^16.5.2"
